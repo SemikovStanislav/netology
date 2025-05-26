@@ -1,17 +1,17 @@
 import {Button, Form} from "antd";
-import type {IColumn, IRowWithKey} from "../common/interfaces.ts";
+import type {IColumn, IRunningInfoRow} from "../common/interfaces.ts";
 import {type Dispatch, type SetStateAction, useState} from "react";
 import classes from "./input-row-form.module.css"
 import {inputComponents} from "../common/inputComponents.tsx";
 import FormItem from "../common/FormItem.tsx";
 
-interface IInputRowForm<DataType extends IRowWithKey> {
+interface IInputRowForm<DataType extends IRunningInfoRow> {
     columns: IColumn<DataType>[]
     data: DataType[]
     setData: Dispatch<SetStateAction<DataType[]>>
 }
 
-const InputRowForm = <DataType extends IRowWithKey>(props: IInputRowForm<DataType>) => {
+const InputRowForm = <DataType extends IRunningInfoRow>(props: IInputRowForm<DataType>) => {
     const [form] = Form.useForm();
     const [nextKey, setNextKey] = useState(0);
 
@@ -40,12 +40,32 @@ const InputRowForm = <DataType extends IRowWithKey>(props: IInputRowForm<DataTyp
 
     const onSubmit = async () => {
         try {
-            const values = (await form.validateFields()) as DataType;
+            const inputValues = (await form.validateFields()) as DataType;
 
-            props.setData(prevState => ([
-                ...prevState,
-                {...values, ...{key: getNextKey()}}
-            ]))
+            const existingIndex = props.data.findIndex(row => row.date.isSame(inputValues.date, 'day'))
+
+            if (existingIndex !== -1) {
+                props.setData(data => {
+                    const updatedData = [...data]
+                    updatedData[existingIndex] = {
+                        ...updatedData[existingIndex],
+                        distance: updatedData[existingIndex].distance + inputValues.distance
+                    }
+
+                    return updatedData
+                })
+            } else {
+                props.setData(prevState => {
+                    const updatedData = [
+                        ...prevState,
+                        {...inputValues, ...{key: getNextKey()}}
+                    ];
+
+                    updatedData.sort((a, b) => b.date.valueOf() - a.date.valueOf());
+
+                    return updatedData;
+                })
+            }
 
             form.setFieldsValue(formInitialValues)
         } catch (errInfo) {

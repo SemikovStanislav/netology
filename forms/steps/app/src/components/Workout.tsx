@@ -20,7 +20,6 @@ const Workout = () => {
             editable: true,
             inputType: 'date',
             sorter: (a , b) =>  a.date.diff(b.date),
-            defaultSortOrder: "ascend"
         },
         {
             title: 'Distance traveled, km',

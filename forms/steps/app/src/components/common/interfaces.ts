@@ -5,6 +5,11 @@ export interface IRowWithKey {
     key: string;
 }
 
+export interface IRunningInfoRow extends IRowWithKey {
+    date: moment.Moment
+    distance: number
+}
+
 export interface IRow {
     [key: string]: string | number | moment.Moment;
 }
