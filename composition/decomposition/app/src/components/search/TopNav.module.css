@@ -1,0 +1,16 @@
+.nav {
+    display: flex;
+    gap: 16px;
+    padding: 8px 0;
+    font-size: 14px;
+    line-height: 1;
+}
+
+.link {
+    color: #1056d4;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}

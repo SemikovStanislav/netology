@@ -4,7 +4,7 @@ export type NewsItem = {
     change: string;
 }
 
-interface NewsTickerProps {
+interface INewsTicker {
     data: NewsItem[];
 }
 
@@ -13,10 +13,10 @@ interface NewsTickerProps {
  * @description Отображает горизонтальный тикер с котировками: названием, ценой и изменением.
  * Используется, например, для показа валют, акций или криптовалют.
  *
- * @param {NewsTickerProps} props
+ * @param {INewsTicker} props
  * @param {NewsItem[]} props.data — Массив объектов с данными: название, цена и изменение.
  */
-const NewsTicker = ({ data }: NewsTickerProps) => {
+const NewsTicker = ({ data }: INewsTicker) => {
     return (
         <div>
             {data.map((item, idx) => (

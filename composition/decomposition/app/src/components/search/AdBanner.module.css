@@ -1,0 +1,12 @@
+.banner {
+    display: block;
+    margin-top: 16px;
+    max-width: 100%;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    display: block;
+}

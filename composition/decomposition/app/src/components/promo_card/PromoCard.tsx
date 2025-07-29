@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./PromoCard.module.css";
 
-interface PromoCardProps {
+interface IPromoCard {
     image: string;
     title: string;
     subtitle: string;
@@ -18,7 +18,7 @@ interface PromoCardProps {
  * @param {string} subtitle — Краткое описание под заголовком.
  * @param {string} href — URL, на который ведёт заголовок.
  */
-const PromoCard: React.FC<PromoCardProps> = ({ image, title, subtitle, href }) => {
+const PromoCard: React.FC<IPromoCard> = ({ image, title, subtitle, href }) => {
     return (
         <div className={styles.promoCard}>
             <img src={image} alt="promo" className={styles.image} />

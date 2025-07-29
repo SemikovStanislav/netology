@@ -1,0 +1,24 @@
+.container {
+    position: relative;
+    padding-left: 80px;
+}
+
+.inner {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    width: 100%;
+}
+
+.logoWrapper {
+    position: absolute;
+    left: -60px;
+    top: 47px;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
