@@ -1,0 +1,25 @@
+.news-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.news-list-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.25rem;
+}
+
+.news-list-item a {
+    display: flex;
+    align-items: center;
+    color: inherit;
+    text-decoration: none;
+    font-size: 1rem;
+    gap: 0.5rem;
+}
+
+.news-list-item img {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+}
