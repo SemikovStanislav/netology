@@ -1,0 +1,50 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.notes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 10px;
+}
+
+.note {
+  width: 150px;
+  word-wrap: break-word;
+  white-space: normal;
+  overflow-wrap: break-word;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.row {
+  display: flex;
+  gap: 1rem;
+}
+
+.align-items-baseline {
+  align-items: baseline;
+}
+
+.align-items-flex-end {
+  align-items: flex-end;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.unicode-button {
+  font-size: xx-large;
+  padding: 0;
+  height: fit-content;
+}

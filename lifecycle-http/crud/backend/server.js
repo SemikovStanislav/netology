@@ -17,7 +17,12 @@ app.use(function (req, res, next) {
   next();
 });
 
-const notes = [];
+const notes = [
+  { id: 1, content: "Купить молоко" },
+  { id: 2, content: "Позвонить бабушке" },
+  { id: 3, content: "Сделать домашку по React" },
+  { id: 4, content: "Поднять штангу" }
+];
 let nextId = 1;
 
 app.get("/notes", (req, res) => {
