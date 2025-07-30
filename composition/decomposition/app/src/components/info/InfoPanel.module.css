@@ -1,0 +1,11 @@
+.panel {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+}
+
+.column {
+    flex: 1;
+    flex-direction: column;
+    gap: 24px;
+}

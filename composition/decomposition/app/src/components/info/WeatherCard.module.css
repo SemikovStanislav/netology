@@ -1,0 +1,21 @@
+.weather {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.icon {
+    width: 32px;
+    height: 32px;
+}
+
+.temp {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.detail {
+    font-size: 14px;
+    line-height: 1.2;
+}
