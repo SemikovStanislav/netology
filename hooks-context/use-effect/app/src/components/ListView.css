@@ -1,0 +1,27 @@
+.list-view {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+    font-family: sans-serif;
+    overflow: hidden;
+}
+
+.list-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.list-item:last-child {
+    border-bottom: none;
+}
+
+.list-item.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.ellipsis {
+    text-align: center;
+    font-weight: bold;
+}
