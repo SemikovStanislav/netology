@@ -1,11 +1,11 @@
 import './App.css'
 import ServiceList from "./components/ServiceList.tsx";
-import ServiceAdd from "./components/ServiceAdd.tsx";
+import ServiceInput from "./components/ServiceInput.tsx";
 
 function App() {
     return (
         <>
-            <ServiceAdd />
+            <ServiceInput />
             <ServiceList />
         </>
     )

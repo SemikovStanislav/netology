@@ -1,5 +1,5 @@
 import {nanoid} from "nanoid";
-import {ADD_SERVICE, REMOVE_SERVICE} from "../actions/actionTypes.ts";
+import {ADD_SERVICE, EDIT_SERVICE, REMOVE_SERVICE} from "../actions/actionTypes.ts";
 
 type AddServiceFieldAction = {
     type: typeof ADD_SERVICE;
@@ -16,7 +16,16 @@ type RemoveServiceFieldAction = {
     }
 }
 
-type ActionT = AddServiceFieldAction | RemoveServiceFieldAction;
+type EditServiceFieldAction = {
+    type: typeof EDIT_SERVICE;
+    payload: {
+        id: string,
+        name: string,
+        price: string,
+    }
+}
+
+type ActionT = AddServiceFieldAction | RemoveServiceFieldAction | EditServiceFieldAction;
 
 const initialState = [
     {id: nanoid(), name: 'Замена стекла', price: 21000},
@@ -32,6 +41,15 @@ const serviceListReducer = (state = initialState, action: ActionT) => {
         case REMOVE_SERVICE: {
             const {id} = action.payload
             return state.filter(service => service.id !== id)
+        }
+        case EDIT_SERVICE: {
+            const {id, name, price} = action.payload
+            return state.map(service => {
+                if (service.id == id) {
+                    return {id: nanoid(), name, price: Number(price)}
+                }
+                return service
+            })
         }
         default:
             return state
