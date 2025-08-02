@@ -10,11 +10,11 @@ type ChangeServiceFieldAction = {
     }
 }
 
-type CleanInputFieldAction = {
+type CleanInputAction = {
     type: typeof CLEAN_INPUT;
 }
 
-type ActionT = CleanInputFieldAction | ChangeServiceFieldAction;
+type ActionT = CleanInputAction | ChangeServiceFieldAction;
 
 const serviceInputReducer = (state = initialState, action: ActionT) => {
     switch (action.type) {

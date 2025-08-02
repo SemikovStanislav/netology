@@ -1,4 +1,11 @@
-import {ADD_SERVICE, REMOVE_SERVICE, CHANGE_SERVICE_FIELD, EDIT_SERVICE, CLEAN_INPUT} from "./actionTypes.ts";
+import {
+    ADD_SERVICE,
+    REMOVE_SERVICE,
+    CHANGE_SERVICE_FIELD,
+    EDIT_SERVICE,
+    CLEAN_INPUT,
+    CHANGE_FILTER
+} from "./actionTypes.ts";
 
 export function addService(name: string, price: string) {
     return {type: ADD_SERVICE, payload: {name, price}};
@@ -18,4 +25,8 @@ export function changeServiceField (name: string, value?: string) {
 
 export function cleanInput() {
     return {type: CLEAN_INPUT}
+}
+
+export function changeFilter(value: string) {
+    return {type: CHANGE_FILTER, payload: {value: value}}
 }

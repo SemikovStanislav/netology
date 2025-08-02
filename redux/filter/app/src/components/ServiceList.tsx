@@ -1,10 +1,12 @@
 import { useSelector, useDispatch } from 'react-redux'
 import {changeServiceField, cleanInput, removeService} from "../actions/actionCreators.ts";
 import type {StateT} from "../store";
+import {useMemo} from "react";
 
 const ServiceList = () => {
     const items = useSelector((state: StateT) => state.serviceList)
     const item = useSelector((state: StateT) => state.serviceInput)
+    const filterValue = useSelector((state: StateT) => state.serviceFilter)
     const dispatch = useDispatch();
     const handleRemove = (id: string) => {
         if (item.id === id) {
@@ -17,9 +19,13 @@ const ServiceList = () => {
         dispatch(changeServiceField("name", name))
         dispatch(changeServiceField("price", price))
     }
+    const filteredItems = useMemo(() => {
+        return items.filter((item) => item.name.includes(filterValue))
+    }, [items, filterValue])
+
     return (
         <ul>
-            {items.map((item) => (
+            {filteredItems.map((item) => (
                 <li key={item.id}>
                     {item.name} {item.price}
                     <button onClick={() => handleEdit(item.id, item.name, String(item.price))}>Edit</button>

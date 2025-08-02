@@ -9,14 +9,14 @@ type AddServiceFieldAction = {
     };
 };
 
-type RemoveServiceFieldAction = {
+type RemoveServiceAction = {
     type: typeof REMOVE_SERVICE;
     payload: {
         id: string
     }
 }
 
-type EditServiceFieldAction = {
+type EditServiceAction = {
     type: typeof EDIT_SERVICE;
     payload: {
         id: string,
@@ -25,7 +25,7 @@ type EditServiceFieldAction = {
     }
 }
 
-type ActionT = AddServiceFieldAction | RemoveServiceFieldAction | EditServiceFieldAction;
+type ActionT = AddServiceFieldAction | RemoveServiceAction | EditServiceAction;
 
 const initialState = [
     {id: nanoid(), name: 'Замена стекла', price: 21000},
