@@ -1,0 +1,1 @@
+export const FALLBACK_URL = "https://knetic.org.uk/wp-content/uploads/2020/07/Video-Placeholder.png";
